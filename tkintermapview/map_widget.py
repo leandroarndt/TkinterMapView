@@ -512,11 +512,11 @@ class TkinterMapView(tkinter.Frame):
         # try to get the tile from the server
         try:
             url = self.tile_server.replace("{x}", str(x)).replace("{y}", str(y)).replace("{z}", str(zoom))
-            image = Image.open(requests.get(url, stream=True, headers={"User-Agent": "TkinterMapView"}).raw)
+            image = Image.open(requests.get(url, stream=True, headers={"User-Agent": "TkinterMapView/1.0 (contact@customtkinter.tomschimansky.com)"}).raw)
 
             if self.overlay_tile_server is not None:
                 url = self.overlay_tile_server.replace("{x}", str(x)).replace("{y}", str(y)).replace("{z}", str(zoom))
-                image_overlay = Image.open(requests.get(url, stream=True, headers={"User-Agent": "TkinterMapView"}).raw)
+                image_overlay = Image.open(requests.get(url, stream=True, headers={"User-Agent": "TkinterMapView/1.0 (contact@customtkinter.tomschimansky.com)"}).raw)
                 image = image.convert("RGBA")
                 image_overlay = image_overlay.convert("RGBA")
 
